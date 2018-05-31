@@ -1,0 +1,14 @@
+{
+  "name": "com.phonegap.helloworld",
+  "version": "1.0.0",
+  "displayName": "BookshelfV2-mobile",
+  "cordova": {
+    "platforms": [
+      "browser"
+    ]
+  },
+  "dependencies": {
+    "cordova-browser": "~5.0.3",
+    "jsonwebtoken": "^8.2.0"
+  }
+}

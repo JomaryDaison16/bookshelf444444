@@ -1,0 +1,75 @@
+<div class="page" data-name="form">
+  <div class="navbar">
+    <div class="navbar-inner sliding">
+      <div class="left">
+        <a href="#" class="link back">
+          <i class="icon icon-back"></i>
+          <span class="ios-only">Back</span>
+        </a>
+      </div>
+      <div class="title">Add Book</div>
+    </div>
+  </div>
+  <div class="page-content">
+    <div class="block-title">Search book to be added</div>
+    <div class="list no-hairlines-md">
+      <ul>
+        <li>
+          <div class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-label">Search by</div>
+              <div class="item-input-wrap">
+                <select name="search" id="booktype" onchange="searchCheck(this);">
+                  <option selected="selected">Select type..</option>
+                  <option value="isbn_">ISBN</option>
+                  <option value="author_">Author</option>
+                  <option value="title_">Book Title</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div id="isbn-check" style="display: none;">
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Information</div>
+                <div class="item-input-wrap">
+                  <input type="text" placeholder="Enter book isbn" id="isbn1"
+                  name="info" required validator />
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div id="author-check" style="display: none;">
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Information</div>
+                <div class="item-input-wrap">
+                  <input type="text" placeholder="Enter book author" id="author_name" required validator />
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div id="title-check" style="display: none;">
+            <div class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">Information</div>
+                <div class="item-input-wrap">
+                  <input id="titleni" type="text" placeholder="Enter book title" name="book-title" required validator />
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <br>
+        <a onclick="search1();" href="/form-result/" class="col button button-round button-fill" >Submit</a>
+      </ul>
+    </div>
+  </div>
+</div>
+

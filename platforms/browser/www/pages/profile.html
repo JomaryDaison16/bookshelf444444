@@ -1,0 +1,234 @@
+<div class="page" data-name="about">
+  <div class="navbar">
+    <div class="navbar-inner sliding">
+      <div class="left">
+        <a href="#" class="link back">
+          <i class="icon icon-back"></i>
+          <span class="ios-only">Back</span>
+        </a>
+      </div>
+      <body onload="profile2()">
+        <div class="title">Profile</div>
+        <div class="right">
+          <a href="#" class="link">
+           <i class="icon material-icons md-only">message</i>
+         </a>
+         <a href="#" class="link">
+           <i class="icon material-icons md-only">notifications<span class="badge color-red">50</span></i>
+         </a>
+       </div>
+     </div>
+   </div>
+   <div class="toolbar tabbar no shadow toolbar-bottom-md">
+    <div class="toolbar-inner">
+      <a href="#tab-1" class="tab-link tab-link-active">
+        <i class="icon material-icons md-only">person</i>
+        <span class="tabbar-label">About</span>
+      </a>
+      <a href="#tab-2" class="tab-link">
+        <i class="icon material-icons md-only">insert_comment</i>
+      </a>
+      <a href="#tab-3" class="tab-link">
+        <i class="icon material-icons md-only">event_note</i>
+        <span class="tabbar-label">Activity logs</span>
+      </a>
+    </div>
+  </div>
+  <div class="tabs-swipeable-wrap">
+    <div class="tabs">
+      <div id="tab-1" class="page-content tab tab-active">
+        <div class="block" style="margin: 0 !important; padding:  0 !important;">
+          <div class="image-holder">
+            <img src="images/sample profile.jpg" class="round">
+            <div id="name" class="round-title"></div>
+            <!-- star rating -->
+            <form>
+              <fieldset>
+                <span class="star-cb-group">
+                  <input type="radio" id="rating-5" name="rating" value="5" /><label for="rating-5">5</label>
+                  <input type="radio" id="rating-4" name="rating" value="4" checked="checked" /><label for="rating-4">4</label>
+                  <input type="radio" id="rating-3" name="rating" value="3" /><label for="rating-3">3</label>
+                  <input type="radio" id="rating-2" name="rating" value="2" /><label for="rating-2">2</label>
+                  <input type="radio" id="rating-1" name="rating" value="1" /><label for="rating-1">1</label>
+                  <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
+                </span>
+              </fieldset>
+            </form>
+          </div>
+          <div class="card-footer" style="border: 5px; border-color: gray;">
+            <a href="#" class="link">Followers: 51133</a>
+            <a href="#" class="link">Following: 1500000</a>
+          </div>
+          <div class="card">
+            <div class="card-header" style="font-weight: bolder;">Basic info</div>
+            <div class="card-content card-content-padding">
+              <div class="list">
+                <ul>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon material-icons md-only">location_on</i></div>
+                      <div class="item-inner">
+                        <div class="item-title">Lives in <b>Iligan City</b></div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon material-icons md-only">phone</i></div>
+                      <div class="item-inner">
+                        <div class="item-title">Contact me <b id ="contact"></b></div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon material-icons md-only">wc</i></div>
+                      <div class="item-inner">
+                        <div class="item-title">Gender <b>Male</b></div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#tab-2" class="tab-link">
+        <i class="icon material-icons md-only">insert_comment</i>
+        <span class="tabbar-label">Review</span>
+      </a>
+      <a href="#tab-3" class="tab-link">
+        <i class="icon material-icons md-only">event_note</i>
+        <span class="tabbar-label">Activity logs</span>
+      </a>
+    </div>
+  </div>
+  <div class="tabs-swipeable-wrap">
+    <div class="tabs">
+      <div id="tab-1" class="page-content tab tab-active">
+        <div class="block" style="margin: 0 !important; padding:  0 !important;">
+          <div class="image-holder">
+            <img src="images/sample profile.jpg" class="round">
+            <div id="name" class="round-title">
+            </div>
+            <br><b>Rating:5</b>
+          </div>
+          <div class="card-footer" style="border: 5px; border-color: gray;">
+            <a href="#" class="link">Followers: 51133</a>
+            <a href="#" class="link">Following: 1500000</a>
+          </div>
+          <hr>
+          <div class="card">
+            <div class="card-header" style="font-weight: bolder;">Basic info
+              <a href="#" class="icon material-icons md-only">edit</a>
+            </div>
+            <div class="card-content card-content-padding">
+              <div class="list">
+                <ul>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon material-icons md-only">location_on</i></div>
+                      <div class="item-inner">
+                        <div class="item-title">Lives in <b>Iligan City</b></div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon material-icons md-only">phone</i></div>
+                      <div class="item-inner">
+                        <div class="item-title">Contact me <b id ="contact"></b></div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon material-icons md-only">wc</i></div>
+                      <div class="item-inner">
+                        <div class="item-title">Gender <b>Male</b></div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon material-icons md-only">cake</i></div>
+                      <div class="item-inner">
+                        <div class="item-title">Birthday <b>November 06, 1999</b></div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tab-2" class="page-content tab">
+        <div class="block" style="margin-top: 2%; margin-bottom: 2%;">
+          <div class="row">
+            <div class="col-100">
+              <h2>Comments</h2>
+              <hr>
+              <div class="row no-gap">
+                <img src="images/sample profile.jpg" class="comment-image">
+                <div class="col-75">
+                  <div class="title">
+                    <a href="#"><b>Vitaliy Vladasovich Grachov</b></a>
+                  </div>
+                  <div class="comment-box" style="padding: 2%;">
+                    This is a test comment po. This is a test comment po. This is a test comment po. This is a test comment po. This is a test comment po. 
+                    This is a test comment po. This is a test comment po.
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="row no-gap">
+                <img src="images/fred.jpg" class="comment-image">
+                <div class="col-75">
+                  <div class="title">
+                    <a href="#"><b>Vitaliy Vladasovich Grachov</b></a>
+                  </div>
+                  <div class="comment-box" style="padding: 2%;">
+                    This is a test comment po. This is a test comment po. This is a test comment po. This is a test comment po. This is a test comment po. 
+                    This is a test comment po. This is a test comment po.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tab-3" class="page-content tab">
+        <div class="block">
+          <div class="timeline">
+            <!-- Timeline item with special timeline elements and inner -->
+            <div class="timeline-item">
+              <div class="timeline-item-date">25 <small>DEC</small></div>
+              <div class="timeline-item-divider"></div>
+              <div class="timeline-item-content">
+                <div class="timeline-item-inner">
+                  <div class="timeline-item-time">12:30</div>
+                  <div class="timeline-item-text">Barry borrowed a book from wally.</div>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-item-date">24 <small>DEC</small></div>
+              <div class="timeline-item-divider"></div>
+              <div class="timeline-item-content">
+                <div class="timeline-item-inner">
+                  <div class="timeline-item-time">12:30</div>
+                  <div class="timeline-item-text">Barry borrowed a book from wally.</div>
+                </div>
+              </div>
+            </div>
+            <!-- End for one timeline-->
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+</div>

@@ -1,0 +1,70 @@
+<div class="page" data-name="form-result">
+  <div class="navbar">
+    <div class="navbar-inner sliding">
+      <div class="left">
+        <a href="#" class="link back">
+          <i class="icon icon-back"></i>
+          <span class="ios-only">Back</span>
+        </a>
+      </div>
+      <div class="title">Add a Book</div>
+      <div class="right">
+        <!-- Link to enable searchbar -->
+        <a class="link icon-only searchbar-enable" data-searchbar=".searchbar">
+          <i class="icon f7-icons ios-only">search_strong</i>
+          <i class="icon material-icons md-only">search</i>
+        </a>
+      </div>
+      <!-- Searchbar is a direct child of "navbar-inner" -->
+
+      <form class="searchbar searchbar-expandable">
+        <div class="searchbar-inner">
+          <div class="searchbar-input-wrap">
+            <input type="search" placeholder="Search"/>
+            <i class="searchbar-icon"></i>
+            <span class="input-clear-button"></span>
+          </div>
+          <span class="searchbar-disable-button">Cancel</span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="card demo-facebook-card">
+
+
+      {{#each items}}
+
+  
+      <div class="card-header">
+      <div class="demo-facebook-name">{{tittle}}</div>
+      </div>
+      <div>{{cover}}</div>
+      <div class="card-content card-content-padding">
+
+      <p >{{author_name}}</p>
+      <p class="likes">Rating: 4.5/5</p>
+      </div>
+      <div class="card-footer"><a href="/form-add/" class="link right">Add Book</a></div>
+  
+      {{/each}}
+
+
+<!--       <form>
+      <div class="card-header">
+        <div class="demo-facebook-name" id="title"></div>
+      </div>
+      <div id='cover'></div>
+      <div class="card-content card-content-padding">
+
+        <p id="author_name"></p>
+        <p class="likes">Rating: 4.5/5</p>
+      </div>
+      <div class="card-footer"><a href="/form-add/" class="link right">Add Book</a></div>
+      </form> -->
+    </div>
+
+    </div>
+  </div>
+</div>

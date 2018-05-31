@@ -1,0 +1,53 @@
+.demo-facebook-card .card-header {
+  display: block;
+}
+.demo-facebook-card .demo-facebook-avatar {
+  float: left;
+}
+.demo-facebook-card .demo-facebook-name {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 500;
+}
+.demo-facebook-card .demo-facebook-date {
+  margin-left: 44px;
+  font-size: 13px;
+  color: #8e8e93;
+}
+.demo-facebook-card .card-footer {
+  background: #fafafa;
+}
+.demo-facebook-card .card-footer a {
+  text-align: center;
+  color: #81848b;
+  font-weight: 500;
+}
+.demo-facebook-card .card-content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.demo-facebook-card .card-content-padding {
+  text-align: center;
+  padding: 15px 25px;
+}.demo-card-header-pic .card-header {
+  height: 60vw;
+  width: 60vw;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.demo-card-header-pic .card-content-padding .date{
+  color: #8e8e93;
+  background: #673ab7;
+}
+.demo-facebook-card .card-content-padding .likes {
+  color: #8e8e93;
+}
+
+.size-100{
+ font-size: 100px;
+}

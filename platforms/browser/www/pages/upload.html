@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>BookShelf</title>
+
+  <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+  <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/signup.css">
+  <link rel="stylesheet" href="css/w3.css">
+  <link rel="stylesheet" href="css/bootstrap-fullscreen-select.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="js/bootstrap-fullscreen-select.js"></script>
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+
+</head>
+<body>
+	<div class="page">
+    <div class="page-content scroll-content">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="left">
+            <a class="link back">
+              <i class="icon icon-back"></i>
+              <span class="ios-only">Back</span>
+            </a>
+          </div>
+          <div class="title">Sign Up</div>
+          <div class="right">
+            <a href="login.html">Login</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress">
+        <div id="progBar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="64" aria-valuemin="64" aria-valuemax="100" style="width:64%;">
+          <span id="demo">64% COMPLETE</span>
+        </div>
+      </div>
+
+      <div class="slideshow-container">
+
+        <div class="subhead">
+          <h2>Add a Profile Picture</h2>
+        </div>
+        <div class="input" align="center">
+          <div id="showinfo">
+              <img src="images/default.png" class="responsive">
+            </div><br>
+            <list>
+              <list-item>
+                <label>Profile Picture: </label>
+                <input type="file" id="avatar" name="avatar">
+              </list-item><br><br>
+            </list>
+            <input type="button" value="NEXT" class="col button button-big button-fill button-round" onclick="move(85,64);editprof()"><br> 
+            <a href="interest.html">SKIP</a><br> 
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+  <script type="text/javascript" src="js/my-app.js"></script>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/signup.js"></script>
+  <script type="text/javascript" src="js/bootstrap-fullscreen-select.min.js" ></script>
+  <script type="text/javascript">
+    $(function () {
+      $('select').mobileSelect();
+    });
+  </script>
+</body>
+</html>

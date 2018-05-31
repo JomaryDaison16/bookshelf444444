@@ -1,0 +1,362 @@
+/* Your app styles here */
+
+/* Left Panel right border when it is visible by breakpoint */
+.panel-left.panel-visible-by-breakpoint:before {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: rgba(0,0,0,0.1);
+  content: '';
+  z-index: 6000;
+}
+
+/* Hide navbar link which opens left panel when it is visible by breakpoint */
+.panel-left.panel-visible-by-breakpoint ~ .view .navbar .panel-open[data-panel="left"] {
+  display: none;
+}
+
+/*
+  Extra borders for main view and left panel for iOS theme when it behaves as panel (before breakpoint size)
+*/
+.ios .panel-left:not(.panel-visible-by-breakpoint).panel-active ~ .view-main:before,
+.ios .panel-left:not(.panel-visible-by-breakpoint).panel-closing ~ .view-main:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: rgba(0,0,0,0.1);
+  content: '';
+  z-index: 6000;
+}
+
+/* A bit of demo styles */;
+.demo-swiper .swiper-slide {
+  font-size: 25px;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: #000;
+}
+.demo-swiper .swiper-slide {
+  background: #fff;
+}
+.demo-swiper {
+  margin: 0px 0 5px;
+  font-size: 18px;
+  height: 150px;
+}
+.demo-swiper.demo-swiper-auto .swiper-slide {
+  width: 70%;
+}
+.demo-swiper.demo-swiper-auto .swiper-slide:nth-child(2n) {
+  width: 70%;
+}
+.demo-swiper.demo-swiper-auto .swiper-slide:nth-child(3n) {
+  width: 30%;
+}
+
+div[class*="col"] {
+  height: 35%
+}
+
+.container {
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 10%;
+}
+
+a .container{
+  text-align: center;
+  text-decoration: none;
+}
+
+a.icons i {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.image-holder{
+  margin: 0;
+  background: #673ab7;
+  width: 100% !important;
+  height: 50% !important;
+  text-align: center;
+  padding: 5% 0;
+}
+
+.round{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.round-title{
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+/*star rating*/
+
+@import "compass/css3";
+
+$unchecked-star: '\2606';
+$unchecked-color: #888;
+$checked-star: '\2605';
+$checked-color: #e52;
+
+.star-cb-group {
+  /* remove inline-block whitespace */
+  font-size: 0;
+  * {
+    font-size: 1rem;
+  }
+  /* flip the order so we can use the + and ~ combinators */
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  & > input {
+    display: none;
+    & + label {
+      /* only enough room for the star */
+      display: inline-block;
+      overflow: hidden;
+      text-indent: 9999px;
+      width: 1em;
+      white-space: nowrap;
+      cursor: pointer;
+      &:before {
+        display: inline-block;
+        text-indent: -9999px;
+        content: $unchecked-star;
+        color: $unchecked-color;
+      }
+    }
+    &:checked ~ label:before,
+      & + label:hover ~ label:before,
+      & + label:hover:before {
+      content: $checked-star;
+      color: #e52;
+      text-shadow: 0 0 1px #333;
+    }
+  }
+  
+  /* the hidden clearer */
+  & > .star-cb-clear + label {
+    text-indent: -9999px;
+    width: .5em;
+    margin-left: -.5em;
+  }
+  & > .star-cb-clear + label:before {
+    width: .5em;
+  }
+
+  &:hover > input + label:before {
+    content: $unchecked-star;
+    color: $unchecked-color;
+    text-shadow: none;
+  }
+  &:hover > input + label:hover ~ label:before,
+  &:hover > input + label:hover:before {
+    content: $checked-star;
+    color: $checked-color;
+    text-shadow: 0 0 1px #333;
+  }
+}
+
+// extra styles
+:root {
+  font-size: 2em;
+  font-family: Helvetica, arial, sans-serif;
+}
+
+body {
+  background: #333;
+  color: $unchecked-color;
+}
+fieldset {
+  border: 0;
+  background: #222;
+  width: 5em;
+  border-radius: 1px;
+  padding: 1em 1.5em 0.9em;
+  margin: 1em auto;
+}
+#log {
+  margin: 1em auto;
+  width: 5em;
+  text-align: center;
+  background: transparent;
+}
+h1 {
+  text-align: center;
+}
+/*
+
+.rating > span:hover:before {
+   content: "\2605";
+   position: absolute;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}*/
+
+
+/* Your app styles here */
+
+/* Left Panel right border when it is visible by breakpoint */
+.panel-left.panel-visible-by-breakpoint:before {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: rgba(0,0,0,0.1);
+  content: '';
+  z-index: 6000;
+}
+
+/* Hide navbar link which opens left panel when it is visible by breakpoint */
+.panel-left.panel-visible-by-breakpoint ~ .view .navbar .panel-open[data-panel="left"] {
+  display: none;
+}
+
+/*
+  Extra borders for main view and left panel for iOS theme when it behaves as panel (before breakpoint size)
+  */
+  .ios .panel-left:not(.panel-visible-by-breakpoint).panel-active ~ .view-main:before,
+  .ios .panel-left:not(.panel-visible-by-breakpoint).panel-closing ~ .view-main:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background: rgba(0,0,0,0.1);
+    content: '';
+    z-index: 6000;
+  }
+
+  /* A bit of demo styles */;
+  .demo-swiper .swiper-slide {
+    font-size: 25px;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    color: #000;
+  }
+  .demo-swiper .swiper-slide {
+    background: #fff;
+  }
+  .demo-swiper {
+    margin: 0px 0 5px;
+    font-size: 18px;
+    height: 150px;
+  }
+  .demo-swiper.demo-swiper-auto .swiper-slide {
+    width: 70%;
+  }
+  .demo-swiper.demo-swiper-auto .swiper-slide:nth-child(2n) {
+    width: 70%;
+  }
+  .demo-swiper.demo-swiper-auto .swiper-slide:nth-child(3n) {
+    width: 30%;
+  }
+
+  div[class*="col"] {
+    height: 35%
+  }
+
+  .container {
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 10%;
+  }
+
+  a .container{
+    text-align: center;
+    text-decoration: none;
+  }
+
+  a.icons i {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .image-holder{
+    margin: 0;
+    background: #673ab7;
+    width: 100% !important;
+    height: 50% !important;
+    text-align: center;
+    padding: 5% 0;
+  }
+
+  .round{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  .comment-image{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+  }
+
+  .round-title{
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  .comment-box{
+    width: 100%;
+    background: #f7f7f7;
+    border-radius: 2%;
+  }
+
+  .row.no-gap{
+    padding: 2%;
+    opacity: 50%;
+  }
