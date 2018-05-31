@@ -633,7 +633,7 @@ def mobile_title_check(self, title):
     books = Books.query.filter(Books.title.like(title)).all()
     if int(resp['totalItems']) == 0 and books is None:
         return make_response('No books found')
-    elif books is not None:
+    elif books is not None: 
         output = []
         for book in books:
             books1 = {}

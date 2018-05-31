@@ -128,13 +128,14 @@ function addbook()
     var price = '500';
     var method = $("#method").val();
     var quantity = $("#quantity").val();
-    var isbn = localStorage.getItem('isbn');
-    var description = localStorage.getItem('description');
-    var publisher_name = localStorage.getItem('publisher_name');
-    var title = localStorage.getItem('title');
-    var author_name = localStorage.getItem('author_name');
-    var book_cover = localStorage.getItem('book_cover');
-    var year = localStorage.getItem('year');
+    var index = localStorage.getItem('index');
+    var isbn = JSON.parse(localStorage.getItem("stire"))[index]['isbn'];
+    var description = JSON.parse(localStorage.getItem("stire"))[index]['description'];
+    var publisher_name = JSON.parse(localStorage.getItem("stire"))[index]['publishers'];
+    var title = JSON.parse(localStorage.getItem("stire"))[index]['title'];
+    var author_name = JSON.parse(localStorage.getItem("stire"))[index]['author_name'];
+    var book_cover = JSON.parse(localStorage.getItem("stire"))[index]['book_cover'];
+    var year = JSON.parse(localStorage.getItem("stire"))[index]['year'];
     var tokens = localStorage.getItem('token');
     var username = localStorage.getItem('username');
     var fiction =['Adventure', 'Action', 'Drama', 'Horror', 'Mystery', 'Mythology'];
@@ -195,7 +196,8 @@ function addbook()
 
 function addbookisbn(isbn){
     var tokens = localStorage.getItem('token');
-    alert(isbn)
+
+    
     
     $.ajax({
         url: 'http://127.0.0.1:5050/mobile/user/isbn_check/'+isbn,
@@ -204,28 +206,118 @@ function addbookisbn(isbn){
         crossDomain: true,
         headers: {'x-access-token': tokens},
         success:function(data){
-            alert(data[0]);
-            var isbn = localStorage.setItem('isbn', data[0]['isbn']);
-            $("#author_name").html('');
+
+
+            loop = [];
+            $('#earl').html('');
+            var e = 0;
+            for(i=0; i<data.length; i++){
+              $('#earl').append(printhher(data[i]['title'], data[i]['book_cover'], data[i]['author_name'], parseInt(i)));
+             e = e + 1;
+            }
+            for(i=0; i<data.length; i++){
+              var bb = {'author_name': data[i]['author_name'],'isbn':data[i]['isbn'], 'title': data[i]['title'], 'book_cover': data[i]['book_cover'], 'publishers': data[i]['publishers'], 'description':data[i]['description'], 'year':data[i]['year'], 'types':data[i]['types'], 'book_id':data[i]['book_id'] };
+              loop.push(bb);
+            }
+
+            localStorage.setItem("stire", JSON.stringify(loop));
+
+            console.log(JSON.parse(localStorage.getItem("stire"))[0]);
+            // alert(data[0]);
+            // var isbn = localStorage.setItem('isbn', data[0]['isbn']);
+            // $("#author_name").html('');
+            // $("#author_name").append('<h1>'+ author_name +'</h1>');
+            // $("#title").html('');
+            // $("#title").append(title);
+            // $("#cover").html('');
+            // $("#cover").append("<img src='"+ book_cover +"'/>");
+            // $("#publisher_name").html('');
+            // $("#publisher_name").append(publisher_name)
+
+            // var description = localStorage.setItem('description', data[0]['description']);
+            // var publisher_name = localStorage.setItem('publisher_name', data[0]['publishers']);
+            // var title = localStorage.setItem('title', data[0]['title']);
+            // var author_name = localStorage.setItem('author_name', data[0]['author_name']);
+            // var book_cover = localStorage.setItem('book_cover', data[0]['book_cover']);
+            // var year = localStorage.setItem('year', data[0]['year']);          
+        },
+
+    });
+}
+
+function printhher(n,m,o,pasa){
+
+  return '<div class="card-header">'+
+        '<div class="demo-facebook-name" id="title">'+n+'</div>'+
+      '</div>'+
+      '<div id="cover"><img src="'+m+'"/></div>'+
+      '<div class="card-content card-content-padding">'+
+
+        '<p id="author_name">'+o+'</p>'+
+        '<p class="likes">Rating: 4.5/5</p>'+
+      '</div>'+
+      '<div class="card-footer">'+
+      '<a onclick="get_index(\''+pasa+'\');" href="/form-add/" class="link right" name="\''+pasa+'\'" id="myform1" value="\''+pasa+'\'" >Add Book</a>'+
+      '</div>';
+}
+function get_index(pasa){
+  $("a").click(function() {
+    var fired_button = $(this).val();
+    var index_set = localStorage.setItem('index', pasa);
+  });
+}
+
+
+
+function addbooktitle(title){
+  var tokens = localStorage.getItem('token');
+  alert(title)
+
+    $.ajax({
+      url: 'http://127.0.0.1:5050/mobile/user/title_check/'+title,
+      contentType: 'application/json; charset=utf-8',
+      mothod: "GET",
+      crossDomain: true,
+      headers: {'x-access-token': tokens},
+      success: function(data){
+            loop = [];
+            $('#earl').html('');
+            var e = 0;
+            for(i=0; i<data.length; i++){
+              $('#earl').append(printhher(data[i]['title'], data[i]['book_cover'], data[i]['author_name'], parseInt(i)));
+             e = e + 1;
+            }
+            /*$("#author_name").html('');
             $("#author_name").append('<h1>'+data[0]['author_name']+'</h1>');
             $("#title").html('');
             $("#title").append(data[0]['title']);
             $("#cover").html('');
             $("#cover").append("<img src='"+ data[0]['book_cover']+"'/>");
             $("#publisher_name").html('');
-            $("#publisher_name").append(data[0]['publishers'])
+            $("#publisher_name").append(data[0]['publishers']);*/
 
+            for(i=0; i<data.length; i++){
+              var bb = {'author_name': data[i]['author_name'],'isbn':data[i]['isbn'], 'title': data[i]['title'], 'book_cover': data[i]['book_cover'], 'publishers': data[i]['publishers'], 'description':data[i]['description'], 'year':data[i]['year'], 'types':data[i]['types'], 'book_id':data[i]['book_id'] };
+              loop.push(bb);
+            }
+
+            localStorage.setItem("stire", JSON.stringify(loop));
+
+            console.log(JSON.parse(localStorage.getItem("stire"))[0]);
+
+            /*var isbn = localStorage.setItem('isbn', data[0]['isbn']);
             var description = localStorage.setItem('description', data[0]['description']);
             var publisher_name = localStorage.setItem('publisher_name', data[0]['publishers']);
             var title = localStorage.setItem('title', data[0]['title']);
             var author_name = localStorage.setItem('author_name', data[0]['author_name']);
             var book_cover = localStorage.setItem('book_cover', data[0]['book_cover']);
-            var year = localStorage.setItem('year', data[0]['year']);          
-        },
-
-    });
+            var year = localStorage.setItem('year', data[0]['year']);*/
+      },
+      error: function(data){
+        alert(data)
+      },
+  });
 }
-
 
 function addbookauthor(author_name){
   var tokens = localStorage.getItem('token');
@@ -238,23 +330,39 @@ function addbookauthor(author_name){
       crossDomain: true,
       headers: {'x-access-token': tokens},
       success: function(data){
-                  
-            $("#author_name").html('');
-            $("#author_name").append('<h1>'+data[0]['author_name']+'</h1>');
-            $("#title").html('');
-            $("#title").append(data[0]['title']);
-            $("#cover").html('');
-            $("#cover").append("<img src='"+ data[0]['book_cover']+"'/>");
-            $("#publisher_name").html('');
-            $("#publisher_name").append(data[0]['publishers']);
 
-            var isbn = localStorage.setItem('isbn', data[0]['isbn']);
-            var description = localStorage.setItem('description', data[0]['description']);
-            var publisher_name = localStorage.setItem('publisher_name', data[0]['publishers']);
-            var title = localStorage.setItem('title', data[0]['title']);
-            var author_name = localStorage.setItem('author_name', data[0]['author_name']);
-            var book_cover = localStorage.setItem('book_cover', data[0]['book_cover']);
-            var year = localStorage.setItem('year', data[0]['year']);
+        
+            loop = [];
+            $('#earl').html('');
+            var e = 0;
+            for(i=0; i<data.length; i++){
+              $('#earl').append(printhher(data[i]['title'], data[i]['book_cover'], data[i]['author_name'], parseInt(i)));
+             e = e + 1;
+            }
+            for(i=0; i<data.length; i++){
+              var bb = {'author_name': data[i]['author_name'],'isbn':data[i]['isbn'], 'title': data[i]['title'], 'book_cover': data[i]['book_cover'], 'publishers': data[i]['publishers'], 'description':data[i]['description'], 'year':data[i]['year'], 'types':data[i]['types'], 'book_id':data[i]['book_id'] };
+              loop.push(bb);
+            }
+
+            localStorage.setItem("stire", JSON.stringify(loop));
+
+            console.log(JSON.parse(localStorage.getItem("stire"))[0]);
+            // $("#author_name").html('');
+            // $("#author_name").append('<h1>'+data[0]['author_name']+'</h1>');
+            // $("#title").html('');
+            // $("#title").append(data[0]['title']);
+            // $("#cover").html('');
+            // $("#cover").append("<img src='"+ data[0]['book_cover']+"'/>");
+            // $("#publisher_name").html('');
+            // $("#publisher_name").append(data[0]['publishers']);
+
+            // var isbn = localStorage.setItem('isbn', data[0]['isbn']);
+            // var description = localStorage.setItem('description', data[0]['description']);
+            // var publisher_name = localStorage.setItem('publisher_name', data[0]['publishers']);
+            // var title = localStorage.setItem('title', data[0]['title']);
+            // var author_name = localStorage.setItem('author_name', data[0]['author_name']);
+            // var book_cover = localStorage.setItem('book_cover', data[0]['book_cover']);
+            // var year = localStorage.setItem('year', data[0]['year']);
       },
   });
 }
