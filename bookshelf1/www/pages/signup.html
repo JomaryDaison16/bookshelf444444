@@ -1,153 +1,133 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="msapplication-tap-highlight" content="no">
-
-  <title>BookShelf</title>
-
-  <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
-  <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/signup.css">
-  <link rel="stylesheet" href="css/w3.css">
-  <link rel="stylesheet" href="css/bootstrap-fullscreen-select.css">
-  <script type="text/javascript" src="js/bootstrap-fullscreen-select.js"></script>
-  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('#signup').click(function () {
-        $.ajax({
-          url: "http://0.0.0.0:5000/signup",
-          contentType: 'application/json; charset=utf-8',
-          data: JSON.stringify({
-            'first_name': $("#first_name").val(),
-            'last_name': $("#last_name").val(),
-            'contact_number': $("#contact_number").val(),
-            'birth_date': $("#birth_date").val(),
-            'gender': $("#gender").val(),
-            'username': $("#username").val(),
-            'password': $("#password").val(),
-            'address': $("#address").val()
-          }),
-          method: "POST",
-          dataType: "json",
-          crossDomain: true,
-          success: function() {
-            console.log("success");
-            move(64,48);
-            alert("Registered successfully!");
-            window.location.replace("upload.html");
-          },
-          error: function () {
-            console.log('error');
-          }
-        })
-      });
-    });
-  </script>
-</head>
-<body> -->
-  <div class="page" data-name="signup">
-    <!-- <div class="page-content scroll-content"> -->
-      <div class="navbar">
-        <div class="navbar-inner sliding">
-          <div class="left">
-            <a class="link back">
-              <i class="icon icon-back"></i>
-              <span class="ios-only">Back</span>
-            </a>
-          </div>
-        	<div class="title">Sign Up</div>
-            <!-- <div class="right">
-            	<a href="login.html">Login</a>
-            </div> -->
-        </div>
+<div class="page" data-name="login">
+  <div class="navbar">
+    <div class="navbar-inner sliding">
+      <div class="left">
+        <a href="#" class="link back">
+          <i class="icon icon-back"></i>
+          <span class="ios-only">Back</span>
+        </a>
       </div>
-
-      <div class="progress">
-        <div id="progBar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
-          <span id="demo">0% COMPLETE</span>
-        </div>
-      </div>
-
-       <!-- Slideshow container -->
-      <div class="slideshow-container">
-
-       <div class="mySlides">
-          <div class="subhead">
-            <h2>Personal Information</h2>
-          </div>
-          <div class="input list no-hairlines-md">
-            <list>
-              <list-item>
-                <div class="item-content item-input">
+      <div class="title">Sign Up</div>
+    </div>
+  </div>
+  <div class="page-content">
+    <div class="list no-hairlines-md">
+      <div id="signUp1" style="display: block;">
+    <div class="block-title">Account Information</div>
+      <ul>
+        <li>
+          <div class="item-content item-input">
             <div class="item-inner">
-              <div class="item-title item-label">Book Title</div>
+              <div class="item-title item-label">Username</div>
               <div class="item-input-wrap">
-                <input type="text" placeholder="Enter book title" name="title"/>
+                <input type="text" placeholder="Enter desired username" name="username" id="username" required validator />
               </div>
             </div>
           </div>
-              </list-item><br><br>
-              <list-item>
-                <label>Last Name: </label>
-                <input type="text" placeholder="Your Last name" id="last_name">
-              </list-item><br><br>
-              <list-item>
-                <label>Address: </label>
-                <input type="text" placeholder="Your Address" id="address">
-              </list-item><br><br>
-              <!-- <list-item>
-                <label>Contact Number: </label>
-                <input type="text" placeholder="Your Contact Number" id="contact_number">
-              </list-item><br><br>
-              <list-item>
-                <label>Birthday: </label>
-                <input type="date" id="birth_date" clear-button>
-              </list-item><br><br>
-              <list-item>
-                <label>Gender: </label>
-                <select id="gender">
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
+        </li>
+        <li>
+          <div class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-label">Password</div>
+              <div class="item-input-wrap">
+                <input type="password" placeholder="Enter desired password" id="password" name="password" required validator />
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <br>
+      <button type="button" class="col button button-round button-fill" onclick="signUp1();">Next</button>
+      </div>
+      <div id="signUp2" style="display: none;">
+    <div class="block-title">Personal Information</div>
+      <ul>
+        <li>
+          <div class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-label">Full Name</div>
+              <div class="item-input-wrap">
+                <input type="text" placeholder="Enter first name" id="first_name" name="first_name" required validator />
+                <input type="text" placeholder="Enter last name" id="last_name" name="last_name" required validator />
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-label">Gender</div>
+              <div class="item-input-wrap">
+                <select name="gender" id="gender">
+                  <option>Male</option>
+                  <option>Female</option>
                 </select>
-              </list-item><br><br> -->
-            </list>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-label" >Birth date</div>
+              <div class="item-input-wrap">
+                <input id="birthdate" name="birthdate" type="date" placeholder="Birth day" value="2014-04-30"/>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <br>
+      <div class="block">
+          <div class="row">
+            <button type="button" class="col button button-round button-fill" onclick="signUp2();">Prev</button>
+            <button type="button" class="col button button-round button-fill" onclick="signUp3();">Next</button>
+          </div>
           </div>
 
-          <input type="button" value="NEXT" class="col button button-big button-fill button-round" onclick="plusSlides(1);move(48,0)">
-        </div>
-
-        <div class="mySlides">
-          <div class="subhead">
-            <h2>Account Information</h2>
+      </div>
+      <div id="signUp3" style="display: none;">
+    <div class="block-title">Personal Information</div>
+      <ul>
+        <li>
+          <div class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-label">Contact Number</div>
+              <div class="item-input-wrap">
+                <input type="text" placeholder="Enter contact number" id="contact_number" name="contact_number" required validator pattern="[0-9]{11}" />
+              </div>
+            </div>
           </div>
-          <div class="input">
-            <list>
-              <list-item>
-                <label>Username: </label>
-                <input type="text" placeholder="Your Username" name="Username" id="username">
-              </list-item><br><br>
-              <list-item>
-                <label>Password: </label>
-                <input type="password" placeholder="Your Password" name="password" id="password">
-              </list-item><br><br>
-            </list>
+        </li>
+        <li>
+          <div class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-label">Address</div>
+              <div class="item-input-wrap">
+                <input type="text" placeholder="Enter address" id="address" name="address" required validator />
+              </div>
+            </div>
           </div>
-          <div class="block row">
-            <button class="button col button-fill button-big button-round" style="width:45%" onclick="plusSlides(-1);dmove(0,48)">BACK</button>
-            <button id="signup" class="button col button-fill button-big button-round" style="width:45%">Register</button>
+        </li>
+        <li>
+          <div class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-label">Email</div>
+              <div class="item-input-wrap">
+                <input type="email" placeholder="Enter email address" id="email" name="email" required validator />
+              </div>
+            </div>
           </div>
+        </li>
+      </ul>
+      <br>
+      <div class="block">
+        <div class="row">
+          <button type="button" class="col button button-round button-fill" onclick="signUp4();">Prev</button>
+          <button onclick="signup0();" class="col button button-round button-fill" id="signup">Register</button>
         </div>
       </div>
-      <br>
+      </div>
     </div>
   </div>
-    </div>
-  </div>
+</div>

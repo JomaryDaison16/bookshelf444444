@@ -47,7 +47,7 @@ var settingsView = app.views.create('#view-settings', {
 });
 
 
-
+// addbook html functions
   function searchCheck(that) {
         if (that.value == "isbn_") {
             document.getElementById("isbn-check").style.display = "block";
@@ -65,3 +65,60 @@ var settingsView = app.views.create('#view-settings', {
             document.getElementById("ifYes").style.display = "none";
         }
     }
+
+// function paymentMethod1() {
+//   var checkRate = document.getElementById("for-rent");
+
+//         if (checkRate.checked == true) {
+//             document.getElementById("price-rate").style.display = "block";
+//         } else {
+//             document.getElementById("price-rate").style.display = "none";
+//         }
+// }
+
+// function paymentMethod2() {
+//   var checkSale = document.getElementById("for-sale");
+
+//         if (checkSale.checked == true) {
+//             document.getElementById("price-sale").style.display = "block";
+//         } else {
+//             document.getElementById("price-sale").style.display = "none";
+//         }
+// }
+
+// // signup html functions
+
+// function signUp1() {
+//   document.getElementById("signUp1").style.display = "none";
+//   document.getElementById("signUp2").style.display = "block";
+// }
+
+// function signUp2() {
+//   document.getElementById("signUp1").style.display = "block";
+//   document.getElementById("signUp2").style.display = "none"; 
+// }
+
+// function signUp3() {
+//   document.getElementById("signUp1").style.display = "none";
+//   document.getElementById("signUp2").style.display = "none";
+//   document.getElementById("signUp3").style.display = "block";
+// }
+
+// function signUp4() {
+//   document.getElementById("signUp1").style.display = "none";
+//   document.getElementById("signUp2").style.display = "block";
+//   document.getElementById("signUp3").style.display = "none";
+// }
+
+// function showTab() {
+//   document.getElementById('showTab1').style.display = "block";
+// }
+
+// function test() {
+// var toggle  = document.getElementById("toggle");
+// var content = document.getElementById("content");
+
+// toggle.addEventListener("click", function() {
+//   content.classList.toggle("show");
+// });
+// }

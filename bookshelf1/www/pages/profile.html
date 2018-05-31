@@ -41,18 +41,6 @@
           <div class="image-holder">
             <img src="images/sample profile.jpg" class="round">
             <div id="name" class="round-title"></div>
-            <!-- star rating -->
-            <form>
-              <fieldset>
-                <span class="star-cb-group">
-                  <input type="radio" id="rating-5" name="rating" value="5" /><label for="rating-5">5</label>
-                  <input type="radio" id="rating-4" name="rating" value="4" checked="checked" /><label for="rating-4">4</label>
-                  <input type="radio" id="rating-3" name="rating" value="3" /><label for="rating-3">3</label>
-                  <input type="radio" id="rating-2" name="rating" value="2" /><label for="rating-2">2</label>
-                  <input type="radio" id="rating-1" name="rating" value="1" /><label for="rating-1">1</label>
-                  <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
-                </span>
-              </fieldset>
             </form>
           </div>
           <div class="card-footer" style="border: 5px; border-color: gray;">
@@ -84,7 +72,15 @@
                     <div class="item-content">
                       <div class="item-media"><i class="icon material-icons md-only">wc</i></div>
                       <div class="item-inner">
-                        <div class="item-title">Gender <b>Male</b></div>
+                        <div class="item-title">Gender <b id='gender' ></b></div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon material-icons md-only">card_giftcard</i></div>
+                      <div class="item-inner">
+                        <div class="item-title">Birth Date <b id='bday' ></b></div>
                       </div>
                     </div>
                   </li>

@@ -1,6 +1,41 @@
 
-var token = '';
-var username = '';
+
+
+function signup0(){
+        var fname = $("#first_name").val();
+        var lname = $("#last_name").val();
+        var contact_number = $("#contact_number").val();
+        var birthdate = $("#birthdate").val();
+        var gender = $("#gender").val();
+        var username = $("#username").val();
+        var password = $("#password").val();
+        var address = $("#address").val();
+        $.ajax({
+          url: "https://nameless-cove-48814.herokuapp.com/signup",
+          contentType: 'application/json; charset=utf-8',
+          data: JSON.stringify({
+            'first_name': fname,
+            'last_name': lname,
+            'contact_number': contact_number,
+            'birthdate': birthdate,
+            'gender': gender,
+            'username': username,
+            'password': password,
+            'address': address
+          }),
+          method: "POST",
+          dataType: "json",
+          crossDomain: true,
+          success: function(resp) {
+            console.log("success");
+            alert("Registered successfully!");
+          },
+          error: function (e) {
+            alert(birthdate)
+            console.log('error');
+          }
+        });
+    }
 
 function login()
     {
@@ -8,7 +43,7 @@ function login()
         var password = $("#password").val();
         $.ajax({
             async: true, 
-            url: 'http://127.0.0.1:5050/login',
+            url: 'https://desolate-basin-69053.herokuapp.com/login',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify({
                 'username': username,
@@ -26,9 +61,9 @@ function login()
         },
 
         success: function (data)  {
-            alert(username+ " enjoy")
+            alert(username+ " logged innnnnnnn")
             localStorage.setItem('token', data.token);
-            localStorage.setItem('username', data.username);
+            localStorage.setItem('username', username);
             window.location.assign('/logged.html');
         },
 
@@ -41,25 +76,30 @@ function login()
 
 function profile2(){
       var username = localStorage.getItem('username');
+      alert(username+ "wala or naa?");
+      
       $.ajax({
-          url: 'http://127.0.0.1:5050/user/info/'+username ,
+          url: 'https://desolate-basin-69053.herokuapp.com/user/info/'+username ,
           type: "GET",
           contentType: 'application/json; charset=utf-8',
           dataType: "json",
             
           success: function(data){
-
+            alert(data.user.username)
             // user info in userprofile.html
             $("#name").html('');
-            $("#name").append('<h1>'+data.first_name+' '+data.last_name+'</h1>');
+            $("#name").append('<h1>'+data.user.first_name+' '+data.user.last_name+'</h1>');
             $("#contact").html('');
-            $("#contact").append(data.contact_number)
+            $("#contact").append(data.user.contact_number)
             $("#contact").html('');
-            $("#contact").append(data.contact_number)
+            $("#contact").append(data.user.contact_number)
             // userName in side pannel
             $("#showuser").html('');
-            $("#showuser").append(data.username)
-
+            $("#showuser").append(data.user.username)
+            $("#bday").html('');
+            $("#bday").append(data.user.birth_date)
+            $("#gender").html('');
+            $("#gender").append(data.user.gender)
           },
           
           error: function(data){
@@ -159,7 +199,7 @@ function addbook()
 
     $.ajax({    
         async: true, 
-        url: 'http://127.0.0.1:5050/user/addbook',
+        url: 'https://desolate-basin-69053.herokuapp.com/user/addbook',
         contentType: 'application/json; charset=utf-8',
         headers: {'x-access-token': tokens},
         method: "POST",
@@ -200,7 +240,7 @@ function addbookisbn(isbn){
     
     
     $.ajax({
-        url: 'http://127.0.0.1:5050/mobile/user/isbn_check/'+isbn,
+        url: 'https://desolate-basin-69053.herokuapp.com/mobile/user/isbn_check/'+isbn,
         contentType: 'application/json; charset=utf-8',
         method: "GET",
         crossDomain: true,
@@ -274,7 +314,7 @@ function addbooktitle(title){
   alert(title)
 
     $.ajax({
-      url: 'http://127.0.0.1:5050/mobile/user/title_check/'+title,
+      url: 'https://desolate-basin-69053.herokuapp.com/mobile/user/title_check/'+title,
       contentType: 'application/json; charset=utf-8',
       mothod: "GET",
       crossDomain: true,
@@ -324,14 +364,14 @@ function addbookauthor(author_name){
   alert(author_name)
 
     $.ajax({
-      url: 'http://127.0.0.1:5050/mobile/user/author_check/'+author_name,
+      url: 'https://desolate-basin-69053.herokuapp.com/mobile/user/author_check/'+author_name,
       contentType: 'application/json; charset=utf-8',
       mothod: "GET",
       crossDomain: true,
       headers: {'x-access-token': tokens},
       success: function(data){
 
-        
+
             loop = [];
             $('#earl').html('');
             var e = 0;
